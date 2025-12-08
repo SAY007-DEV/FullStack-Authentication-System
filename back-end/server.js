@@ -4,6 +4,10 @@ import dotenv from 'dotenv';
 import connectDb from './Config/Database.js';
 dotenv.config();
 
+import path from 'path';
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 
@@ -17,3 +21,9 @@ app.listen(PORT,()=>{console.log(`Server is running on port http://localhost:${P
 
 // Database connection
 connectDb();
+
+// Static files
+app.use(express.static(path.join(__dirname,'./Public')));
+app.get('/',(req,res)=>{
+    res.sendFile(path.join(__dirname,'./Public/index.html'));
+});
