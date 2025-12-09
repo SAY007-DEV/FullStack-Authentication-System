@@ -8,5 +8,5 @@ const userSchema = new mongoose.Schema({
     phone: { type: Number },
 })
 
-const User = mongoose.model('users', userSchema);
+const User = mongoose.model('Users', userSchema);
 export default User;
