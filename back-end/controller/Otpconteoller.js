@@ -1,5 +1,6 @@
+import { log } from "console";
 import Otp from "../Models/otpModels";
-
+import sendOtp from "../Utilitys/SendMail";
 import crypto from "crypto";
 
 
@@ -15,7 +16,8 @@ export const otp = async (req, res)=>{
        Otp.otp = generatedOtp;
        otp.createdAt = Date.now();
          await Otp.save();
-
+         await sendOtp(email, generatedOtp);
+         log("OTP sent to email:", email);
 
 
         res.status(200).json({ email, otp: generatedOtp, message: "OTP generated successfully" });
