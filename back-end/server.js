@@ -8,6 +8,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+import router from './Routes/AuthRoute.js';
 
 const app = express();
 
@@ -27,3 +28,8 @@ app.use(express.static(path.join(__dirname,'./Public')));
 app.get('/',(req,res)=>{
     res.sendFile(path.join(__dirname,'./Public/index.html'));
 });
+
+
+// Routes
+
+app.use('/api/auth', router);

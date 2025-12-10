@@ -4,7 +4,7 @@ import mongosse from 'mongoose';
 const userSchema = new mongoose.Schema({
     username: { type: String },
     password:{ type: String},
-    email: { type: email },
+    email: { type: String },
     phone: { type: Number },
 })
 
