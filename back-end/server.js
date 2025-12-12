@@ -32,4 +32,4 @@ app.get('/',(req,res)=>{
 
 // Routes
 
-app.use('/api/auth', router);
+app.use('/api/v1/auth', router);
